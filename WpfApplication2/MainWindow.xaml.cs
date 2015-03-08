@@ -52,10 +52,20 @@ namespace WpfApplication2
         //genererer rom i hver etasje
         private void genererRom()
         {
+            int etasjeNr = 0;
+            int romNr = 0;
             int antallTabs = romOversikt.Items.Count;
             foreach (var tab in romOversikt.Items)
-            {
-                Rectangle room = new Rectangle(); 
+            {                
+                etasjeNr++;
+                System.Console.Write("Genererer rom i etasje " + etasjeNr + ": ");
+
+                for (int i = 0; i < 14; i++)
+                {                    
+                    System.Console.Write((romNr+1) + " ");
+                    romNr++;
+                }
+                System.Console.WriteLine();
                 
             }
             
