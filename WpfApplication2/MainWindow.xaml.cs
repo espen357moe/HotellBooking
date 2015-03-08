@@ -25,29 +25,13 @@ namespace WpfApplication2
         {
             int antallEtasjer = 3;
             InitializeComponent();
-            genererEtasjer(antallEtasjer);
             genererRom();
         }
 
         private void registrerGjestOk_Click(object sender, RoutedEventArgs e)
         {
             gjesteListeListBox.Items.Add(nyGjestTextBox.Text);
-        }
-
-        //genererer etasjer
-        private void genererEtasjer(int antallEtasjer)
-        {
-            System.Console.Write("Genererte etasjer: ");
-            for (int i = 0; i < antallEtasjer; i++)
-            {
-                string tittel = ((romOversikt.Items.Count + 1).ToString() + ". etg");
-                TabItem etasje = new TabItem();
-                etasje.Header=tittel;
-                romOversikt.Items.Add(etasje);
-                System.Console.Write((i+1) + " ");
-            }
-            System.Console.WriteLine();
-        }
+        }        
 
         //genererer rom i hver etasje
         private void genererRom()
@@ -61,14 +45,16 @@ namespace WpfApplication2
                 System.Console.Write("Genererer rom i etasje " + etasjeNr + ": ");
 
                 for (int i = 0; i < 14; i++)
-                {                    
+                {
+                   
+                    Rom rom = new Rom(); 
+                    
+
                     System.Console.Write((romNr+1) + " ");
                     romNr++;
                 }
-                System.Console.WriteLine();
-                
-            }
-            
+                System.Console.WriteLine();               
+            }           
         }
     }
 }
