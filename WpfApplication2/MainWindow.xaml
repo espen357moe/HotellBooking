@@ -3,29 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="523.517" Width="956.362">
     <Grid>
-        <TabControl x:Name="romOversikt" HorizontalAlignment="Left" Height="474" Margin="221,10,0,0" VerticalAlignment="Top" Width="719">
-            <TabItem Name="FørsteEtasje" Header="FØRSTE ETASJE">
-                <Grid Background="LightSteelBlue" ShowGridLines="True">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="200"/>
-                        <RowDefinition Height="200"/>                    
-                    </Grid.RowDefinitions>
-                </Grid>
-            </TabItem>
-            <TabItem Name="AndreEtasje" Header ="ANDRE ETASJE">
-                <Grid></Grid>
-            </TabItem>
-            <TabItem Name="TredjeEtasje" Header="TREDJE JÆVLA ETASJE">
-                <Grid></Grid>
-            </TabItem>
+        <TabControl x:Name="romOversikt" HorizontalAlignment="Left" Height="474" Margin="221,10,0,0" VerticalAlignment="Top" Width="719">           
         </TabControl>
         <ListBox x:Name="gjesteListeListBox" HorizontalAlignment="Left" Height="384" Margin="10,100,0,0" VerticalAlignment="Top" Width="206"/>
         <TextBox x:Name="nyGjestTextBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>

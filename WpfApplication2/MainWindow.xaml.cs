@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
+using System.Windows.Media.Animation;
 
 namespace WpfApplication2
 {
@@ -25,20 +26,38 @@ namespace WpfApplication2
         {
             int antallEtasjer = 3;
             InitializeComponent();
-            genererRom();
+
+            genererEtasjer(antallEtasjer);
+            genererRom();            
         }
 
         private void registrerGjestOk_Click(object sender, RoutedEventArgs e)
         {
             gjesteListeListBox.Items.Add(nyGjestTextBox.Text);
-        }        
+        }
+
+        //genererer etasjer (tabs i tab-control'en)
+        private void genererEtasjer(int antallEtasjer)
+        {
+            int etasjeNr;
+            etasjeNr = 0;
+           
+            for(int i =0; i<antallEtasjer; i++)
+            {
+                
+                TabItem etasje = new TabItem();
+                etasje.Header = ((etasjeNr + 1) + "etg.");
+                romOversikt.Items.Add(etasje);
+            }
+
+        }
 
         //genererer rom i hver etasje
         private void genererRom()
         {
             int etasjeNr = 0;
             int romNr = 0;
-            int antallTabs = romOversikt.Items.Count;
+
             foreach (var tab in romOversikt.Items)
             {                
                 etasjeNr++;
@@ -46,10 +65,8 @@ namespace WpfApplication2
 
                 for (int i = 0; i < 14; i++)
                 {
-                   
-                    Rom rom = new Rom(); 
                     
-
+                    Rom rom = new Rom();  
                     System.Console.Write((romNr+1) + " ");
                     romNr++;
                 }
