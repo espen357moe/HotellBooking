@@ -36,20 +36,18 @@ namespace WpfApplication2
             gjesteListeListBox.Items.Add(nyGjestTextBox.Text);
         }
 
-        //genererer etasjer (tabs i tab-control'en)
+        //genererer etasjer (i.e. tabs i tab-control'en)
         private void genererEtasjer(int antallEtasjer)
         {
             int etasjeNr;
             etasjeNr = 0;
            
-            for(int i =0; i<antallEtasjer; i++)
-            {
-                
+            for(int i = 0; i < antallEtasjer; i++)
+            {               
                 TabItem etasje = new TabItem();
-                etasje.Header = ((etasjeNr + 1) + "etg.");
+                etasje.Header = ((etasjeNr + 1) + " etg.");
                 romOversikt.Items.Add(etasje);
             }
-
         }
 
         //genererer rom i hver etasje
@@ -64,8 +62,7 @@ namespace WpfApplication2
                 System.Console.Write("Genererer rom i etasje " + etasjeNr + ": ");
 
                 for (int i = 0; i < 14; i++)
-                {
-                    
+                {                    
                     Rom rom = new Rom();  
                     System.Console.Write((romNr+1) + " ");
                     romNr++;
