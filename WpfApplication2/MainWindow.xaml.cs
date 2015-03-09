@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
+using System.Security.Policy;
 using System.Windows.Media.Animation;
 
 namespace WpfApplication2
@@ -55,17 +56,21 @@ namespace WpfApplication2
         {
             int etasjeNr = 0;
             int romNr = 0;
-
-            foreach (var tab in romOversikt.Items)
+            
+            foreach(TabItem tab in romOversikt.Items)
             {                
                 etasjeNr++;
-                System.Console.Write("Genererer rom i etasje " + etasjeNr + ": ");
+
+                WrapPanel etasjePanel = new WrapPanel();                
+                tab.Content = etasjePanel;
+                
 
                 for (int i = 0; i < 14; i++)
                 {                    
-                    Rom rom = new Rom();  
+                    Rom rom = new Rom(800, romNr);  
                     System.Console.Write((romNr+1) + " ");
                     romNr++;
+                    etasjePanel.Children.Add(rom);
                 }
                 System.Console.WriteLine();               
             }           

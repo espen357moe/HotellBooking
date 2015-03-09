@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace WpfApplication2
 {
@@ -16,13 +17,16 @@ namespace WpfApplication2
         string innsjekkDato;
         string utsjekkDato;
 
-        public Rom()
+        public Rom(int clientWidth, int romNummer)
         {
-            Content = "LEDIG";
+            MinWidth = (clientWidth/7);
+            Content = romNummer + " \nLEDIG";
+            Background=Brushes.DarkGreen;
         }
 
-        public Rom(int romNummer, bool opptatt, string gjesteNavn, string innsjekkDato, string utsjekkDato)
+        public Rom(int clientWidth, int romNummer, bool opptatt, string gjesteNavn, string innsjekkDato, string utsjekkDato)
         {
+            Width = (clientWidth / 7);
             romNummer = this.romNummer;
             opptatt = this.opptatt;
             gjesteNavn = this.gjesteNavn;
