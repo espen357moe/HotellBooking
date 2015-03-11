@@ -26,10 +26,11 @@ namespace WpfApplication2
         public MainWindow()
         {
             int antallEtasjer = 3;
+            int romOversiktBredde;
+
             InitializeComponent();
 
             genererEtasjer(antallEtasjer);
-            genererRom();            
         }
 
         private void registrerGjestOk_Click(object sender, RoutedEventArgs e)
@@ -37,43 +38,31 @@ namespace WpfApplication2
             gjesteListeListBox.Items.Add(nyGjestTextBox.Text);
         }
 
-        //genererer etasjer (i.e. tabs i tab-control'en)
+        //genererer etasjer (i.e. tabs i tab-control'en) og 14 rom pr. etasje
         private void genererEtasjer(int antallEtasjer)
         {
-            int etasjeNr;
-            etasjeNr = 0;
-           
-            for(int i = 0; i < antallEtasjer; i++)
-            {               
-                TabItem etasje = new TabItem();
-                etasje.Header = ((etasjeNr + 1) + " etg.");
+            int romNr = 0;        
+            for (int etasjeNr = 1; etasjeNr <= antallEtasjer; etasjeNr++)
+            {
+                TabItem etasje = new TabItem();                
                 romOversikt.Items.Add(etasje);
+                etasje.Header = etasjeNr.ToString();
             }
-        }
 
-        //genererer rom i hver etasje
-        private void genererRom()
-        {
-            int etasjeNr = 0;
-            int romNr = 0;
-            
-            foreach(TabItem tab in romOversikt.Items)
-            {                
-                etasjeNr++;
-
-                WrapPanel etasjePanel = new WrapPanel();                
-                tab.Content = etasjePanel;
+            foreach (TabItem tab in romOversikt.Items)
+            {
                 
+                WrapPanel etasjePanel = new WrapPanel();
+                tab.Content = etasjePanel;
 
-                for (int i = 0; i < 14; i++)
-                {                    
-                    Rom rom = new Rom(800, romNr);  
-                    System.Console.Write((romNr+1) + " ");
-                    romNr++;
+                for (int i = 0; i < 16; i++)
+                {
+                    Rom rom = new Rom(700, romNr + 1);
                     etasjePanel.Children.Add(rom);
+                    etasjePanel.VerticalAlignment = VerticalAlignment.Center;
+                    romNr++;
                 }
-                System.Console.WriteLine();               
-            }           
-        }
+            }      
+        }       
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -16,15 +17,20 @@ namespace WpfApplication2
         string gjesteNavn;
         string innsjekkDato;
         string utsjekkDato;
+        Thickness rammeTykkelse = new Thickness(2);
+        
 
-        public Rom(int clientWidth, int romNummer)
+        public Rom(double clientWidth, int romNummer)
         {
+            BorderBrush = Brushes.White;
+            BorderThickness = rammeTykkelse;
             MinWidth = (clientWidth/7);
+            MinHeight = 150;
             Content = romNummer + " \nLEDIG";
             Background=Brushes.DarkGreen;
         }
 
-        public Rom(int clientWidth, int romNummer, bool opptatt, string gjesteNavn, string innsjekkDato, string utsjekkDato)
+        public Rom(double clientWidth, int romNummer, bool opptatt, string gjesteNavn, string innsjekkDato, string utsjekkDato)
         {
             Width = (clientWidth / 7);
             romNummer = this.romNummer;
