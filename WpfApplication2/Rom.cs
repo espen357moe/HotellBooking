@@ -25,16 +25,16 @@ namespace HotellBooking
             opptatt         = false;
             BorderBrush     = Brushes.White;
             BorderThickness = rammeTykkelse;
-            MinWidth        = 150;
-            MinHeight       = 150;
+            MinWidth        = 100;
+            MinHeight       = 100;
             Content         = romNummer + " \nLEDIG";
             Background      = Brushes.DarkGreen;
         }
 
         public Rom(int romNummer, string gjesteNavn, string innsjekkDato, string utsjekkDato, bool opptatt = true)
         {
-            MinWidth        = 150;
-            MinHeight       = 150;
+            MinWidth        = 100;
+            MinHeight       = 100;
             romNummer       = this.romNummer;
             opptatt         = this.opptatt;
             gjesteNavn      = this.gjesteNavn;

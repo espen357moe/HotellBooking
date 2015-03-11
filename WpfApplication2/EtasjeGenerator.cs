@@ -10,9 +10,9 @@ namespace HotellBooking
 {
     class EtasjeGenerator
     {
-        public void genererEtasjer(int antallEtasjer, TabControl romOversikt)
+        public void genererEtasjer(int antallEtasjer, int antallRomPerEtasje, TabControl romOversikt)
         {
-            
+            int romNr = 0;
             for (int etasjeNr = 1; etasjeNr <= antallEtasjer; etasjeNr++)
             {
                 TabItem etasje = new TabItem();
@@ -22,11 +22,11 @@ namespace HotellBooking
 
             foreach (TabItem tab in romOversikt.Items)
             {
-                int romNr = 0;
+
                 WrapPanel etasjePanel = new WrapPanel();
                 tab.Content = etasjePanel;
 
-                for (int i = 0; i < 16; i++)
+                for (int i = 0; i < antallRomPerEtasje; i++)
                 {
                     Rom rom = new Rom(romNr + 1);
                     etasjePanel.Children.Add(rom);

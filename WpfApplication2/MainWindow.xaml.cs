@@ -26,11 +26,12 @@ namespace HotellBooking
         public MainWindow()
         {
             int antallEtasjer = 3;
+            int antallRomPerEtasje = 14;
 
             InitializeComponent();
 
             EtasjeGenerator eg = new EtasjeGenerator();
-            eg.genererEtasjer(antallEtasjer, romOversikt);
+            eg.genererEtasjer(antallEtasjer, antallRomPerEtasje, romOversikt);
         }
 
         private void registrerGjestOk_Click(object sender, RoutedEventArgs e)
