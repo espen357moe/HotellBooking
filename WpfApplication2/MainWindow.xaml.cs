@@ -16,7 +16,7 @@ using System.Drawing;
 using System.Security.Policy;
 using System.Windows.Media.Animation;
 
-namespace WpfApplication2
+namespace HotellBooking
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -26,43 +26,16 @@ namespace WpfApplication2
         public MainWindow()
         {
             int antallEtasjer = 3;
-            int romOversiktBredde;
 
             InitializeComponent();
 
-            genererEtasjer(antallEtasjer);
+            EtasjeGenerator eg = new EtasjeGenerator();
+            eg.genererEtasjer(antallEtasjer, romOversikt);
         }
 
         private void registrerGjestOk_Click(object sender, RoutedEventArgs e)
         {
             gjesteListeListBox.Items.Add(nyGjestTextBox.Text);
         }
-
-        //genererer etasjer (i.e. tabs i tab-control'en) og 14 rom pr. etasje
-        private void genererEtasjer(int antallEtasjer)
-        {
-            int romNr = 0;        
-            for (int etasjeNr = 1; etasjeNr <= antallEtasjer; etasjeNr++)
-            {
-                TabItem etasje = new TabItem();                
-                romOversikt.Items.Add(etasje);
-                etasje.Header = etasjeNr.ToString();
-            }
-
-            foreach (TabItem tab in romOversikt.Items)
-            {
-                
-                WrapPanel etasjePanel = new WrapPanel();
-                tab.Content = etasjePanel;
-
-                for (int i = 0; i < 16; i++)
-                {
-                    Rom rom = new Rom(700, romNr + 1);
-                    etasjePanel.Children.Add(rom);
-                    etasjePanel.VerticalAlignment = VerticalAlignment.Center;
-                    romNr++;
-                }
-            }      
-        }       
     }
 }
