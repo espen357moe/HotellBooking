@@ -12,27 +12,29 @@ namespace HotellBooking
 {
     class Rom : Label
     {
-        int         romNummer;
-        bool        opptatt;
-        string      gjesteNavn;
-        string      innsjekkDato;
-        string      utsjekkDato;
-        Thickness   rammeTykkelse = new Thickness(2);        
+        public int      romNummer { get; set; }
+        public bool     opptatt { get; set; }
+        public string   gjesteNavn { get; set; }
+        public string   innsjekkDato { get; set; }
+        public string   utsjekkDato { get; set; }
+        
+        Thickness       rammeTykkelse = new Thickness(2);        
 
-        public Rom(double clientWidth, int romNummer)
+        public Rom(int romNummer)
         {
             opptatt         = false;
             BorderBrush     = Brushes.White;
             BorderThickness = rammeTykkelse;
-            MinWidth        = (clientWidth/7);
+            MinWidth        = 150;
             MinHeight       = 150;
             Content         = romNummer + " \nLEDIG";
             Background      = Brushes.DarkGreen;
         }
 
-        public Rom(double clientWidth, int romNummer, bool opptatt, string gjesteNavn, string innsjekkDato, string utsjekkDato)
+        public Rom(int romNummer, string gjesteNavn, string innsjekkDato, string utsjekkDato, bool opptatt = true)
         {
-            Width           = (clientWidth / 7);
+            MinWidth        = 150;
+            MinHeight       = 150;
             romNummer       = this.romNummer;
             opptatt         = this.opptatt;
             gjesteNavn      = this.gjesteNavn;
