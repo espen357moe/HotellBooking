@@ -40,6 +40,6 @@ namespace HotellBooking
             gjesteNavn      = this.gjesteNavn;
             innsjekkDato    = this.innsjekkDato;
             utsjekkDato     = this.utsjekkDato;
-        }
+        }      
     }
 }

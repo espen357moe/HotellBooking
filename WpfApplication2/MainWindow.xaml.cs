@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Drawing;
 using System.Security.Policy;
 using System.Windows.Media.Animation;
+using HotellBooking;
 
 namespace HotellBooking
 {
@@ -23,20 +24,61 @@ namespace HotellBooking
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string GjesteNavn;
+        public DateTime? InnsjekkDato;
+        public DateTime? UtsjekkDato;
+        private readonly Hotell hotell;
         public MainWindow()
         {
             int antallEtasjer = 3;
             int antallRomPerEtasje = 14;
-
+                     
             InitializeComponent();
 
-            EtasjeGenerator eg = new EtasjeGenerator();
-            eg.genererEtasjer(antallEtasjer, antallRomPerEtasje, romOversikt);
+            
+            hotell = XmlHåndterer.LesHotell();
+            EtasjeGenerator eg = new EtasjeGenerator(hotell);
+            eg.genererEtasjer(hotell, romOversikt);
+            foreach (var gjest in hotell.Gjester)
+            {
+                gjesteListeListBox.Items.Add(gjest);
+            }
+            
         }
 
         private void registrerGjestOk_Click(object sender, RoutedEventArgs e)
         {
-            gjesteListeListBox.Items.Add(nyGjestTextBox.Text);
+            GjesteNavn = nyGjestTextBox.Text;
+            var gjest=XmlHåndterer.LeggTilNyGjest(hotell, GjesteNavn, InnsjekkDato, UtsjekkDato);
+            gjesteListeListBox.Items.Add(gjest);
+        }
+
+
+        private void InnsjekkDatoDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InnsjekkDato = InnsjekkDatoDatePicker.SelectedDate;
+        }
+
+        private void UtsjekkDatoDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UtsjekkDato = UtsjekkDatoDatePicker.SelectedDate;
+        }
+
+        private bool isDragging;
+
+        private void gjesteListeListBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!isDragging && gjesteListeListBox.SelectedItem != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                isDragging = true;
+                DragDrop.DoDragDrop(gjesteListeListBox, gjesteListeListBox.SelectedItem, DragDropEffects.All);
+                
+            }
+        }
+
+        private void gjesteListeListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            isDragging = false;
         }
     }
 }
