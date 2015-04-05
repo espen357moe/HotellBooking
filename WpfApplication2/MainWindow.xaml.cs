@@ -16,6 +16,7 @@ using System.Drawing;
 using System.Security.Policy;
 using System.Windows.Media.Animation;
 using HotellBooking;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace HotellBooking
 {
@@ -34,18 +35,24 @@ namespace HotellBooking
             int antallRomPerEtasje = 14;
                      
             InitializeComponent();
-
-            
+           
             hotell = XmlHåndterer.LesHotell();
             EtasjeGenerator eg = new EtasjeGenerator(hotell);
             eg.genererEtasjer(hotell, romOversikt);
+            
+            //Henter gjester fra de leste XML-dataene og skriver disse til listeboksen
             foreach (var gjest in hotell.Gjester)
             {
+                eg.SetRomData(gjest);
                 gjesteListeListBox.Items.Add(gjest);
+                
+              
             }
-            
         }
 
+        
+
+        //Registrerer ny gjest når brukeren trykker på registrer-knappen
         private void registrerGjestOk_Click(object sender, RoutedEventArgs e)
         {
             GjesteNavn = nyGjestTextBox.Text;
@@ -66,6 +73,7 @@ namespace HotellBooking
 
         private bool isDragging;
 
+        //Drag & drop-funksjonalitet
         private void gjesteListeListBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isDragging && gjesteListeListBox.SelectedItem != null && e.LeftButton == MouseButtonState.Pressed)

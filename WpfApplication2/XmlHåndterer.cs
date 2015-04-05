@@ -12,9 +12,13 @@ namespace HotellBooking
 {
     public class XmlHåndterer
     {
+        //Instansierer XmlSerializer for å lette XML-håndtering
         private static readonly XmlSerializer serializer = new XmlSerializer(typeof(Hotell));
+        
+        //Setter filsti til XML-filen til ProgramData/HotellBooking-mappen på lokal maskin
         public static readonly string XmlFilSti = System.IO.Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.CommonApplicationData), "HotellBooking") + "\\booking.xml";
 
+        //Metode som oppretter nytt hotell
         private static Hotell OpprettHotell(int antallEtasjer, int antallRomPerEtasje)
         {
             var hotell = new Hotell()
@@ -39,7 +43,7 @@ namespace HotellBooking
             return hotell;
         }
 
-
+        //Skriver gjeldende hotell til XML
         public static void LagreHotell(Hotell hotell)
         {
             using (var xmlFil = File.Open(XmlFilSti, FileMode.Create, FileAccess.Write))
@@ -48,6 +52,7 @@ namespace HotellBooking
             }
         }
 
+        //Leser gjeldende hotell fra XML
         public static Hotell LesHotell()
         {
             if (!File.Exists(XmlFilSti))
@@ -63,6 +68,7 @@ namespace HotellBooking
             }
         }
       
+        //Legger ny gjest til XML
         public static Gjest LeggTilNyGjest(Hotell hotell, string gjesteNavn, DateTime? innsjekkDato, DateTime? utsjekkDato)
         {
             var gjest = new Gjest();
