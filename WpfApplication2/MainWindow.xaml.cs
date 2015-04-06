@@ -52,9 +52,18 @@ namespace HotellBooking
         //Registrerer ny gjest når brukeren trykker på registrer-knappen
         private void registrerGjestOk_Click(object sender, RoutedEventArgs e)
         {
-            GjesteNavn = nyGjestTextBox.Text;
-            var gjest=XmlHåndterer.LeggTilNyGjest(hotell, GjesteNavn, InnsjekkDato, UtsjekkDato);
-            gjesteListeListBox.Items.Add(gjest);
+            if(string.IsNullOrWhiteSpace(nyGjestTextBox.Text.ToString()))
+            {
+                ValideringsVarsel.Content = "Navnefeltet kan ikke være tomt";               
+            }
+            
+            else 
+            {
+                ValideringsVarsel.Content = ""; 
+                 GjesteNavn = nyGjestTextBox.Text;
+                 var gjest=XmlHåndterer.LeggTilNyGjest(hotell, GjesteNavn, InnsjekkDato, UtsjekkDato);
+                 gjesteListeListBox.Items.Add(gjest);
+            }
         }
 
         private void InnsjekkDatoDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

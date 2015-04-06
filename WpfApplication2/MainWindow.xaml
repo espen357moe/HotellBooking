@@ -4,14 +4,15 @@
         Title="MainWindow" Height="642.217" Width="712.362" ResizeMode="NoResize">
     <Grid Background="#FFC5C5C5">
         <TabControl x:Name="romOversikt" HorizontalAlignment="Left" Margin="221,41,0,10.4" Width="475" Background="White" BorderThickness="1"/>
-        <ListBox x:Name="gjesteListeListBox" HorizontalAlignment="Left" Height="444" Margin="10,160,0,0" VerticalAlignment="Top" Width="206" MouseMove="gjesteListeListBox_MouseMove" MouseLeftButtonUp="gjesteListeListBox_MouseLeftButtonUp" Background="White"/>
+        <ListBox x:Name="gjesteListeListBox" HorizontalAlignment="Left" Height="406" Margin="10,198,0,0" VerticalAlignment="Top" Width="206" MouseMove="gjesteListeListBox_MouseMove" MouseLeftButtonUp="gjesteListeListBox_MouseLeftButtonUp" Background="White"/>
         <TextBox x:Name="nyGjestTextBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
         <Label Content="Registrer ny gjest" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="registrerGjestOk" Content="Registrer" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="206" Click="registrerGjestOk_Click"/>
-        <DatePicker x:Name="InnsjekkDatoDatePicker" HorizontalAlignment="Left" Margin="86,71,0,0" VerticalAlignment="Top" Width="130" SelectedDateChanged="InnsjekkDatoDatePicker_SelectedDateChanged" Loaded="InnsjekkDatoDatePicker_Loaded"/>
-        <DatePicker x:Name="UtsjekkDatoDatePicker" HorizontalAlignment="Left" Margin="86,100,0,0" VerticalAlignment="Top" Width="130" SelectedDateChanged="UtsjekkDatoDatePicker_SelectedDateChanged" Loaded="UtsjekkDatoDatePicker_Loaded"/>
-        <Label Content="Innsjekkdato" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
-        <Label Content="Utsjekkdato" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="registrerGjestOk" Content="Registrer" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="206" Click="registrerGjestOk_Click"/>
+        <DatePicker x:Name="InnsjekkDatoDatePicker" HorizontalAlignment="Left" Margin="86,109,0,0" VerticalAlignment="Top" Width="130" SelectedDateChanged="InnsjekkDatoDatePicker_SelectedDateChanged" Loaded="InnsjekkDatoDatePicker_Loaded"/>
+        <DatePicker x:Name="UtsjekkDatoDatePicker" HorizontalAlignment="Left" Margin="86,138,0,0" VerticalAlignment="Top" Width="130" SelectedDateChanged="UtsjekkDatoDatePicker_SelectedDateChanged" Loaded="UtsjekkDatoDatePicker_Loaded"/>
+        <Label Content="Innsjekkdato" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top"/>
+        <Label Content="Utsjekkdato" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ValideringsVarsel" Content="" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="206" Foreground="#FFB40000"/>
     </Grid>
 
 </Window>
