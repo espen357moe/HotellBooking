@@ -1,0 +1,8 @@
+C:\Users\Espen\Documents\Visual Studio 2013\Projects\HotellBooking\WebBooking\bin\WebBooking.dll.config
+C:\Users\Espen\Documents\Visual Studio 2013\Projects\HotellBooking\WebBooking\bin\WebBooking.dll
+C:\Users\Espen\Documents\Visual Studio 2013\Projects\HotellBooking\WebBooking\bin\WebBooking.pdb
+C:\Users\Espen\Documents\Visual Studio 2013\Projects\HotellBooking\WebBooking\bin\HotellBooking.exe
+C:\Users\Espen\Documents\Visual Studio 2013\Projects\HotellBooking\WebBooking\bin\HotellBooking.pdb
+C:\Users\Espen\Documents\Visual Studio 2013\Projects\HotellBooking\WebBooking\obj\Debug\WebBooking.csprojResolveAssemblyReference.cache
+C:\Users\Espen\Documents\Visual Studio 2013\Projects\HotellBooking\WebBooking\obj\Debug\WebBooking.dll
+C:\Users\Espen\Documents\Visual Studio 2013\Projects\HotellBooking\WebBooking\obj\Debug\WebBooking.pdb
