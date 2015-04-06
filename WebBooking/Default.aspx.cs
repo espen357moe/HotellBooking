@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,14 +23,23 @@ namespace WebBooking
 
         protected void GodkjennKnapp_Click(object sender, EventArgs e)
         {
-            gjesteNavn = NavnInputTextBox.Text;
-            innsjekkDato = InnsjekkDatoCalendar.SelectedDate;
-            utsjekkDato = UtsjekkDatoCalendar.SelectedDate;
-            XmlHåndterer xh = new XmlHåndterer();
-            hotell = XmlHåndterer.LesHotell();
-            var gjest = XmlHåndterer.LeggTilNyGjest(hotell, gjesteNavn, innsjekkDato, utsjekkDato);           
+            if (string.IsNullOrWhiteSpace(NavnInputTextBox.Text))
+            {
+                NavnInputTextBox.BorderColor = Color.DarkRed;
+                NavnInputTextBox.Focus();
+            }
 
-            Response.Redirect(Request.RawUrl);
+            else 
+            { 
+                gjesteNavn = NavnInputTextBox.Text;
+                innsjekkDato = InnsjekkDatoCalendar.SelectedDate;
+                utsjekkDato = UtsjekkDatoCalendar.SelectedDate;
+                XmlHåndterer xh = new XmlHåndterer();
+                hotell = XmlHåndterer.LesHotell();
+                var gjest = XmlHåndterer.LeggTilNyGjest(hotell, gjesteNavn, innsjekkDato, utsjekkDato);           
+
+                Response.Redirect(Request.RawUrl);
+            }
         }
 
         protected void InnsjekkDatoCalendar_SelectionChanged(object sender, EventArgs e)
