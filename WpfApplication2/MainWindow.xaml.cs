@@ -82,19 +82,22 @@ namespace HotellBooking
         private void gjesteListeListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             isDragging = false;
-        }
+        }             
 
-        //Gjør så det ikke går å velge datoer tilbake i tid
+        //Gjør så det ikke går an å velge datoer tilbake i tid    
         private void InnsjekkDatoDatePicker_Loaded(object sender, RoutedEventArgs e)
         {
-            var cal = sender as Calendar;
-            cal.BlackoutDates.AddDatesInPast();
+            Calendar calendar = sender as Calendar;
+            calendar.BlackoutDates.AddDatesInPast();
         }
-
+        
         private void UtsjekkDatoDatePicker_Loaded(object sender, RoutedEventArgs e)
         {
-            var cal = sender as Calendar;
-            cal.BlackoutDates.AddDatesInPast();
+            Calendar calendar = sender as Calendar;
+            calendar.BlackoutDates.AddDatesInPast();
         }
+
+        
+       
     }
 }
