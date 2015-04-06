@@ -43,7 +43,7 @@ namespace HotellBooking
             
             //Henter gjester fra de leste XML-dataene og skriver disse til listeboksen
             foreach (var gjest in hotell.Gjester)
-            {
+            {              
                 eg.SetRomData(gjest);
                 gjesteListeListBox.Items.Add(gjest);                            
             }
@@ -95,7 +95,6 @@ namespace HotellBooking
                     gjesteListeListBox.Items.Add(gjest);
                 }
             }
-
         }
 
         private void gjesteListeListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
