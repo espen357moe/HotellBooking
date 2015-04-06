@@ -25,12 +25,14 @@ namespace WebBooking
         {
             if (string.IsNullOrWhiteSpace(NavnInputTextBox.Text))
             {
+                NavnInputTextBox.BorderWidth = 2;
                 NavnInputTextBox.BorderColor = Color.DarkRed;
                 NavnInputTextBox.Focus();
             }
 
             else 
-            { 
+            {
+                NavnInputTextBox.BorderWidth = 3;
                 gjesteNavn = NavnInputTextBox.Text;
                 innsjekkDato = InnsjekkDatoCalendar.SelectedDate;
                 utsjekkDato = UtsjekkDatoCalendar.SelectedDate;
