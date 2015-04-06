@@ -83,5 +83,18 @@ namespace HotellBooking
         {
             isDragging = false;
         }
+
+        //Gjør så det ikke går å velge datoer tilbake i tid
+        private void InnsjekkDatoDatePicker_Loaded(object sender, RoutedEventArgs e)
+        {
+            var cal = sender as Calendar;
+            cal.BlackoutDates.AddDatesInPast();
+        }
+
+        private void UtsjekkDatoDatePicker_Loaded(object sender, RoutedEventArgs e)
+        {
+            var cal = sender as Calendar;
+            cal.BlackoutDates.AddDatesInPast();
+        }
     }
 }

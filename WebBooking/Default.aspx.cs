@@ -41,5 +41,23 @@ namespace WebBooking
         {
             utsjekkDato = UtsjekkDatoCalendar.SelectedDate;
         }
+
+        protected void InnsjekkDatoCalendar_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date < DateTime.Now)
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.Enabled = false;
+            }
+        }
+
+        protected void UtsjekkDatoCalendar_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date < DateTime.Now)
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.Enabled = false;
+            }
+        }
     }
 }

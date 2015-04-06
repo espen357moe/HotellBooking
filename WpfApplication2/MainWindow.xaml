@@ -8,8 +8,8 @@
         <TextBox x:Name="nyGjestTextBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
         <Label Content="Registrer ny gjest" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="registrerGjestOk" Content="Registrer" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="206" Click="registrerGjestOk_Click"/>
-        <DatePicker x:Name="InnsjekkDatoDatePicker" HorizontalAlignment="Left" Margin="86,71,0,0" VerticalAlignment="Top" Width="130" SelectedDateChanged="InnsjekkDatoDatePicker_SelectedDateChanged"/>
-        <DatePicker x:Name="UtsjekkDatoDatePicker" HorizontalAlignment="Left" Margin="86,100,0,0" VerticalAlignment="Top" Width="130" SelectedDateChanged="UtsjekkDatoDatePicker_SelectedDateChanged"/>
+        <DatePicker x:Name="InnsjekkDatoDatePicker" HorizontalAlignment="Left" Margin="86,71,0,0" VerticalAlignment="Top" Width="130" SelectedDateChanged="InnsjekkDatoDatePicker_SelectedDateChanged" Loaded="InnsjekkDatoDatePicker_Loaded"/>
+        <DatePicker x:Name="UtsjekkDatoDatePicker" HorizontalAlignment="Left" Margin="86,100,0,0" VerticalAlignment="Top" Width="130" SelectedDateChanged="UtsjekkDatoDatePicker_SelectedDateChanged" Loaded="UtsjekkDatoDatePicker_Loaded"/>
         <Label Content="Innsjekkdato" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
         <Label Content="Utsjekkdato" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
     </Grid>
