@@ -16,7 +16,11 @@ namespace HotellBooking
 
         public override string ToString()
         {
-            return Navn;
+            if (RomNummer == null)
+            {
+                return ("*" + Navn);
+            }
+            else return Navn;                       
         }
     }
 }

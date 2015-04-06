@@ -88,25 +88,6 @@ namespace HotellBooking
             hotell.Gjester.Add(gjest);
             LagreHotell(hotell);
             return gjest;
-        }
-
-        //Metode for å oppdaterer gjestelisten ved behov
-        public void oppdaterGjesteListeFraXML(ListBox gjesteListe)
-        {
-            XDocument ListBoxOptions = XDocument.Load(XmlFilSti+"booking.xml");
-            foreach (XElement element in ListBoxOptions.Root.Elements())
-            {
-                if (element.Name.LocalName.Contains("gjest"))
-                {
-                    foreach (XElement subelement in element.Elements())
-                    {
-                        if (subelement.Name.LocalName.Contains("gjestenavn"))
-                        {
-                            gjesteListe.Items.Add(element.Value);
-                        }
-                    }
-                }
-            }
-        }
+        }       
     }
 }

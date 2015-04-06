@@ -62,7 +62,7 @@ namespace HotellBooking
                 ValideringsVarsel.Content = ""; 
                  GjesteNavn = nyGjestTextBox.Text;
                  var gjest=XmlHåndterer.LeggTilNyGjest(hotell, GjesteNavn, InnsjekkDato, UtsjekkDato);
-                 gjesteListeListBox.Items.Add(gjest);
+                 gjesteListeListBox.Items.Add(gjest);               
             }
         }
 
@@ -84,13 +84,23 @@ namespace HotellBooking
             if (!isDragging && gjesteListeListBox.SelectedItem != null && e.LeftButton == MouseButtonState.Pressed)
             {
                 isDragging = true;
-                DragDrop.DoDragDrop(gjesteListeListBox, gjesteListeListBox.SelectedItem, DragDropEffects.All);                
+                DragDrop.DoDragDrop(gjesteListeListBox, gjesteListeListBox.SelectedItem, DragDropEffects.All);
+                
+                //fjerner asterisk fra gjester etterhvert som de får tildelt rom
+                gjesteListeListBox.Items.Clear();
+                foreach (var gjest in hotell.Gjester)
+                {
+                    var eg = new EtasjeGenerator(hotell);
+                    eg.SetRomData(gjest);
+                    gjesteListeListBox.Items.Add(gjest);
+                }
             }
+
         }
 
         private void gjesteListeListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            isDragging = false;
+            isDragging = false;          
         }             
 
         //Gjør så det ikke går an å velge datoer tilbake i tid    
