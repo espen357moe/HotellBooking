@@ -14,7 +14,7 @@
         Book overnatting</div>
         <p>
             Fullt navn</p>
-        <asp:TextBox ID="NavnInputTextBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="NavnInputTextBox" Required="True" runat="server"></asp:TextBox>
         <br />
         <br />
         Innsjekkdato:<asp:Calendar ID="InnsjekkDatoCalendar" runat="server" OnSelectionChanged="InnsjekkDatoCalendar_SelectionChanged" OnDayRender="InnsjekkDatoCalendar_DayRender"></asp:Calendar>
