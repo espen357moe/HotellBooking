@@ -15,7 +15,7 @@ namespace HotellBooking
         //Instansierer XmlSerializer for å lette XML-håndtering
         private static readonly XmlSerializer serializer = new XmlSerializer(typeof(Hotell));
         
-        //Setter filsti til XML-filen til ProgramData/HotellBooking-mappen på lokal maskin
+        //Setter filsti til XML-filen til C:\ProgramData\HotellBooking-mappen på lokal maskin
         public static readonly string XmlFilSti = System.IO.Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.CommonApplicationData), "HotellBooking") + "\\booking.xml";
 
         //Metode som oppretter nytt hotell
@@ -26,9 +26,9 @@ namespace HotellBooking
                 Gjester = new List<Gjest>(), 
                 Rom = new List<HotellRom>()
             };
+            
             for (int i = 0; i < antallEtasjer; i++)
             {
-
                 for (int j = 0; j < antallRomPerEtasje; j++)
                 {
                     var rom = new HotellRom
@@ -38,7 +38,6 @@ namespace HotellBooking
                     };
                     hotell.Rom.Add(rom);
                 }
-
             }
             return hotell;
         }
@@ -80,6 +79,7 @@ namespace HotellBooking
             return gjest;
         }
 
+        //Metode for å oppdaterer gjestelisten ved behov
         public void oppdaterGjesteListeFraXML(ListBox gjesteListe)
         {
             XDocument ListBoxOptions = XDocument.Load(XmlFilSti+"booking.xml");

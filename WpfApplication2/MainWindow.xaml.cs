@@ -29,6 +29,7 @@ namespace HotellBooking
         public DateTime? InnsjekkDato;
         public DateTime? UtsjekkDato;
         private readonly Hotell hotell;
+        
         public MainWindow()
         {
             int antallEtasjer = 3;
@@ -44,14 +45,10 @@ namespace HotellBooking
             foreach (var gjest in hotell.Gjester)
             {
                 eg.SetRomData(gjest);
-                gjesteListeListBox.Items.Add(gjest);
-                
-              
+                gjesteListeListBox.Items.Add(gjest);                            
             }
         }
-
         
-
         //Registrerer ny gjest når brukeren trykker på registrer-knappen
         private void registrerGjestOk_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +56,6 @@ namespace HotellBooking
             var gjest=XmlHåndterer.LeggTilNyGjest(hotell, GjesteNavn, InnsjekkDato, UtsjekkDato);
             gjesteListeListBox.Items.Add(gjest);
         }
-
 
         private void InnsjekkDatoDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -71,16 +67,15 @@ namespace HotellBooking
             UtsjekkDato = UtsjekkDatoDatePicker.SelectedDate;
         }
 
-        private bool isDragging;
-
         //Drag & drop-funksjonalitet
+        private bool isDragging;
+       
         private void gjesteListeListBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isDragging && gjesteListeListBox.SelectedItem != null && e.LeftButton == MouseButtonState.Pressed)
             {
                 isDragging = true;
-                DragDrop.DoDragDrop(gjesteListeListBox, gjesteListeListBox.SelectedItem, DragDropEffects.All);
-                
+                DragDrop.DoDragDrop(gjesteListeListBox, gjesteListeListBox.SelectedItem, DragDropEffects.All);                
             }
         }
 
